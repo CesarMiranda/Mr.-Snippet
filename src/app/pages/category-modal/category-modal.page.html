@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closeModal()">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>categoryModal</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="showMoreOptions()">
+                <ion-icon name="more" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar showCancelButton="focus" cancelButtonText="Cancelar" placeholder="Buscar Categoría"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of [0,1,2,3,4,5,6,7]; let i = index">
+            <ion-avatar slot="start">
+                <ion-img src="./../../assets/img/blueprint.svg"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                <h2>{{ i + 1 }}</h2>
+            </ion-label>
+            <ion-checkbox slot="end" (ionChange)="getCategory($event)" [value]="item + 1"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button expand="block" (click)="addCategory()" [disabled]="selectedCategories.length === 0">Elegir Categorías</ion-button>
+    </ion-toolbar>
+</ion-footer>
