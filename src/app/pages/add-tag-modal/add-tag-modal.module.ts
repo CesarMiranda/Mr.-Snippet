@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddCategoryModalPage } from './add-category-modal.page';
+import { AddTagModalPage } from './add-tag-modal.page';
 
 @NgModule({
   imports: [
@@ -12,6 +12,6 @@ import { AddCategoryModalPage } from './add-category-modal.page';
     FormsModule,
     IonicModule
   ],
-  declarations: [AddCategoryModalPage]
+  declarations: [AddTagModalPage]
 })
-export class AddCategoryModalPageModule {}
+export class AddTagModalPageModule {}

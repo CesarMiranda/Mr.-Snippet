@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { Category } from '../../interfaces/category.interface';
 import { ActionSheetController } from '@ionic/angular';
 import { AddCategoryModalPage } from '../add-category-modal/add-category-modal.page';
+import { AddTagModalPage } from '../add-tag-modal/add-tag-modal.page';
 
 @Component({
   selector: 'app-category-modal',
@@ -53,6 +54,13 @@ export class CategoryModalPage implements OnInit {
     await modal.present();
   }
 
+  async showAddTagModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddTagModalPage
+    });
+    await modal.present();
+  }
+
   async showMoreOptions() {
     const actionSheet = await this.actionSheetCtrl.create({
       mode: 'md',
@@ -62,6 +70,13 @@ export class CategoryModalPage implements OnInit {
           icon: 'add',
           handler: () => {
             this.showAddCategoryModal();
+          }
+        },
+        {
+          text: 'Nueva Etiqueta',
+          icon: 'pricetags',
+          handler: () => {
+            this.showAddTagModal();
           }
         },
         {

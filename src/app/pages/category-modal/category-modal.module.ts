@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { CategoryModalPage } from './category-modal.page';
 import { AddCategoryModalPage } from '../add-category-modal/add-category-modal.page';
 import { AddCategoryModalPageModule } from '../add-category-modal/add-category-modal.module';
+import { AddTagModalPage } from '../add-tag-modal/add-tag-modal.page';
+import { AddTagModalPageModule } from '../add-tag-modal/add-tag-modal.module';
 
 @NgModule({
-  entryComponents: [AddCategoryModalPage],
+  entryComponents: [
+    AddCategoryModalPage,
+    AddTagModalPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddCategoryModalPageModule
+    AddCategoryModalPageModule,
+    AddTagModalPageModule
   ],
   declarations: [CategoryModalPage]
 })
