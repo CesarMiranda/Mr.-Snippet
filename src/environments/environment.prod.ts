@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  coreUrl: 'http://192.168.10.20'
 };

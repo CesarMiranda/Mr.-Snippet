@@ -1,0 +1,17 @@
+<ion-menu side="start" menuId="primaryMenu" contentId="primaryContent">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menú</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-menu-toggle *ngFor="let menu of menuOpts | async; let i = index">
+                <ion-item>
+                    <ion-icon slot="start" [name]="menu.icon"></ion-icon>
+                    <ion-label>{{ menu.name }}</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+    </ion-content>
+</ion-menu>
