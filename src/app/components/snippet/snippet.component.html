@@ -1,9 +1,9 @@
 <ion-card mode="ios">
     <ion-card-header>
         <ion-card-subtitle>
-            <span>Categoría</span>
+            <span class="category-subtitle">Categoría</span>
             <div class="snippet-more">
-                <ion-button fill="clear">
+                <ion-button fill="clear" (click)="presentActionSheet()">
                     <ion-icon slot="icon-only" name="more"></ion-icon>
                 </ion-button>
             </div>
@@ -11,6 +11,11 @@
         <ion-card-title>Card Title</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sapiente ducimus accusantium exercitationem modi explicabo, quasi alias doloremque unde, distinctio delectus. Tempore natus, harum aut incidunt vitae vero eos quas.
+        <div>
+            <pre><code class="css" #code>{{ testCode }}</code>
+        </pre>
+        </div>
+        <!-- Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
     </ion-card-content>
 </ion-card>
