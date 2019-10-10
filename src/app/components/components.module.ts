@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { SnippetsComponent } from './snippets/snippets.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { MenuComponent } from './menu/menu.component';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

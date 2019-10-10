@@ -4,6 +4,16 @@
         "redirectTo": "/"
     },
     {
+        "icon": "apps",
+        "name": "Nueva Categoría",
+        "redirectTo": "/categories"
+    },
+    {
+        "icon": "pricetags",
+        "name": "Nueva Etiqueta",
+        "redirectTo": "/"
+    },
+    {
         "icon": "log-in",
         "name": "Inciar Sesión",
         "redirectTo": "/"

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetService } from '../../services/snippet.service';
 import { Observable } from 'rxjs';
-import { SnippetData } from '../../interfaces/snippet.interface';
+import { Snippet } from '../../interfaces/snippet.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { SnippetData } from '../../interfaces/snippet.interface';
 })
 export class HomePage implements OnInit {
 
-  snippets: Observable<SnippetData>;
+  snippets: Observable<Snippet[]>;
 
   constructor(
     private snippetService: SnippetService
