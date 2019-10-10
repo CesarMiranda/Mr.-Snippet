@@ -9,17 +9,17 @@
                         <ion-card-title>¿Nueva Categoría?</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
-                        <form>
+                        <form #addCategoryForm="ngForm" (ngSubmit)="onStoreCategory()">
                             <ion-list>
                                 <ion-item>
-                                    <ion-input type="text" placeholder="Nombre de la categoría" name="title"></ion-input>
+                                    <ion-input required [(ngModel)]="category.title" type="text" placeholder="Nombre de la categoría*" name="title"></ion-input>
                                 </ion-item>
                                 <ion-item>
-                                    <ion-textarea rows="6" cols="20" placeholder="¿Algo que agregar a tu categoría?"></ion-textarea>
+                                    <ion-textarea [(ngModel)]="category.body" rows="6" cols="20" placeholder="¿Algo que agregar a tu categoría?" name="body"></ion-textarea>
                                 </ion-item>
                             </ion-list>
                             <div class="ion-margin-top">
-                                <ion-button fill="outline" color="secondary" type="submit" expand="block" class="ion-no-margin">
+                                <ion-button [disabled]="addCategoryForm.invalid" fill="outline" color="secondary" type="submit" expand="block" class="ion-no-margin">
                                     <ion-icon class="icon-big" name="checkmark" slot="start"></ion-icon>
                                     Guardar Categoría
                                 </ion-button>
@@ -38,7 +38,7 @@
                         <ion-list>
                             <ion-item detail *ngFor="let category of categories | async">
                                 <ion-avatar slot="start">
-                                    <ion-img src="./../../../assets/img/blueprint.svg"></ion-img>
+                                    <ion-img [src]="category.urlImage | image:'categories'"></ion-img>
                                 </ion-avatar>
                                 <ion-label>{{ category.title }}</ion-label>
                             </ion-item>

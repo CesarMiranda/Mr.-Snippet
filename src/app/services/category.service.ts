@@ -17,4 +17,10 @@ export class CategoryService {
     return this.http.get<Category[]>(`${ environment.coreUrl }/categories`)
       .pipe(tap(console.log));
   }
+
+  storeACategory(category: Category) {
+
+    return this.http.post<Category>(`${ environment.coreUrl }/categories`, category)
+      .pipe(tap(console.log));
+  }
 }
