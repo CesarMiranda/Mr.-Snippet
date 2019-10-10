@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Snippet } from '../../interfaces/snippet.interface';
+import { SnippetService } from '../../services/snippet.service';
 
 @Component({
   selector: 'app-snippets',
@@ -7,8 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnippetsComponent implements OnInit {
 
-  constructor() { }
+  snippets: Observable<Snippet[]>;
 
-  ngOnInit() {}
+  constructor(
+    private snippetService: SnippetService
+  ) { }
+
+  ngOnInit() {
+    this.snippets = this.snippetService.getAllSnippets();
+  }
 
 }

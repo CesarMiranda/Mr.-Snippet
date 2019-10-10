@@ -8,10 +8,10 @@
                 </ion-button>
             </div>
         </ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-title>{{ snippet.title }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sapiente ducimus accusantium exercitationem modi explicabo, quasi alias doloremque unde, distinctio delectus. Tempore natus, harum aut incidunt vitae vero eos quas.
+        <ion-label>{{ snippet.subtitle }}</ion-label>
         <div>
             <pre><code class="css" #code>{{ testCode }}</code>
         </pre>

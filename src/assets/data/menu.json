@@ -1,5 +1,11 @@
 [{
-    "icon": "heart",
-    "name": "Mis Favoritos",
-    "redirectTo": "/"
-}]
+        "icon": "heart",
+        "name": "Mis Favoritos",
+        "redirectTo": "/"
+    },
+    {
+        "icon": "log-in",
+        "name": "Inciar Sesión",
+        "redirectTo": "/"
+    }
+]

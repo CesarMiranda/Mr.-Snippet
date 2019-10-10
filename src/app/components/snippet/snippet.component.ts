@@ -6,6 +6,7 @@ hljs.registerLanguage('css', css);
 
 import { ActionSheetController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { Snippet } from '../../interfaces/snippet.interface';
 
 @Component({
   selector: 'app-snippet',
@@ -22,7 +23,7 @@ export class SnippetComponent implements OnInit, AfterViewInit {
   }
   `;
 
-  @Input() item: number;
+  @Input() snippet: Snippet;
   @ViewChild('code', {static: false}) code: ElementRef;
 
   constructor(
