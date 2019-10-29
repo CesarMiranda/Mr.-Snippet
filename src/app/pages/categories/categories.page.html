@@ -16,6 +16,12 @@
                                     <ion-input required [(ngModel)]="category.title" type="text" placeholder="Nombre de la categoría*" name="title"></ion-input>
                                 </ion-item>
                             </ion-list>
+                            <div class="ion-margin-top ion-margin-bottom">
+                                <ion-button (click)="showActionSheet()" color="primary" expand="block" fill="outline">
+                                    <ion-icon name="images" slot="start"></ion-icon>
+                                    Agregar Imagen
+                                </ion-button>
+                            </div>
                             <div class="ion-margin-bottom ion-margin-top">
                                 <quill-editor [style]="{height: '400px'}"></quill-editor>
                             </div>

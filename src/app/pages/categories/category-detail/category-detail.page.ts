@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from '../../../services/category.service';
+import { Category } from '../../../interfaces/category.interface';
 
 @Component({
   selector: 'app-category-detail',
@@ -8,8 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategoryDetailPage implements OnInit {
 
+  category: Category;
+
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
@@ -17,8 +22,17 @@ export class CategoryDetailPage implements OnInit {
   }
 
   getUrlParams() {
+    this.activatedRoute.params.subscribe( params => {
+      const id = params.id;
+      this.onGetCategory(id);
+    });
+  }
 
-    this.activatedRoute.params.subscribe( params => console.log(params));
+  onGetCategory(id: number) {
+    this.categoryService.getCategory(id)
+      .subscribe((resp: Category) => {
+        this.category = resp;
+      });
   }
 
 }

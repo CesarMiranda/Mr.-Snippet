@@ -1,5 +1,7 @@
 {
   "name": "mrSnippet",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

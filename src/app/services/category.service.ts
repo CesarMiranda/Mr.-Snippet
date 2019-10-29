@@ -23,4 +23,9 @@ export class CategoryService {
     return this.http.post<Category>(`${ environment.coreUrl }/categories`, category)
       .pipe(tap(console.log));
   }
+
+  getCategory(categoryId: number) {
+    return this.http.get<Category>(`${ environment.coreUrl }/categories/${ categoryId }`)
+      .pipe(tap(console.log));
+  }
 }

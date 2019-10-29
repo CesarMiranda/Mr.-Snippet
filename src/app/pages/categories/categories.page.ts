@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
 import { Category } from '../../interfaces/category.interface';
-import { ToastController } from '@ionic/angular';
+import { ToastController, ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-categories',
@@ -21,7 +21,8 @@ export class CategoriesPage implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private actionSheetCtrl: ActionSheetController
   ) { }
 
   ngOnInit() {
@@ -53,6 +54,31 @@ export class CategoriesPage implements OnInit {
       ]
     });
     toast.present();
+  }
+
+  async showActionSheet() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Selecciona una foto',
+      buttons: [
+        {
+          text: 'Tomar Foto',
+          handler: () => {
+            // this.takePicture();
+          }
+        },
+        {
+          text: 'Elegir de la biblioteca',
+          handler: () => {
+            // this.getPicture();
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        }
+      ]
+    });
+    await actionSheet.present();
   }
 
 }
