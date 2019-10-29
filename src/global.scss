@@ -28,7 +28,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
 // Estilos
 .icon-big {
     font-size: 2rem !important;
+}
+
+[contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
 }

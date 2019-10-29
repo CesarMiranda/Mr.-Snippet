@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { CategoriesPage } from './categories.page';
 import { ComponentsModule } from '../../components/components.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { QuillModule } from 'ngx-quill';
 
 const routes: Routes = [
   {
@@ -23,7 +24,17 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    QuillModule.forRoot({
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote'],
+          [{ size: ['small', false, 'large', 'huge'] }],  // custom dropdown
+          [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ]
+      }
+    })
   ],
   declarations: [CategoriesPage]
 })

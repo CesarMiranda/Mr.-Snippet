@@ -15,10 +15,10 @@
                                 <ion-item>
                                     <ion-input required [(ngModel)]="category.title" type="text" placeholder="Nombre de la categoría*" name="title"></ion-input>
                                 </ion-item>
-                                <ion-item>
-                                    <ion-textarea [(ngModel)]="category.body" rows="6" cols="20" placeholder="¿Algo que agregar a tu categoría?" name="body"></ion-textarea>
-                                </ion-item>
                             </ion-list>
+                            <div class="ion-margin-bottom ion-margin-top">
+                                <quill-editor [style]="{height: '400px'}"></quill-editor>
+                            </div>
                             <div class="ion-margin-top">
                                 <ion-button [disabled]="addCategoryForm.invalid" fill="outline" color="secondary" type="submit" expand="block" class="ion-no-margin">
                                     <ion-icon class="icon-big" name="checkmark" slot="start"></ion-icon>
