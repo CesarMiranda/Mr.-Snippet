@@ -16,12 +16,6 @@
                                     <ion-input required [(ngModel)]="category.title" type="text" placeholder="Nombre de la categoría*" name="title"></ion-input>
                                 </ion-item>
                             </ion-list>
-                            <div class="ion-margin-top ion-margin-bottom">
-                                <ion-button (click)="showActionSheet()" color="primary" expand="block" fill="outline">
-                                    <ion-icon name="images" slot="start"></ion-icon>
-                                    Agregar Imagen
-                                </ion-button>
-                            </div>
                             <div class="ion-margin-bottom ion-margin-top">
                                 <quill-editor [style]="{height: '400px'}"></quill-editor>
                             </div>
@@ -42,7 +36,7 @@
                         <ion-searchbar class="ion-no-padding" shoCancelButton="always" cancelButtonText="Cancelar" placeholder="Buscar Categoría..."></ion-searchbar>
                     </ion-card-header>
                     <ion-card-content>
-                        <ion-list>
+                        <ion-list *ngIf="categories">
                             <ion-item detail *ngFor="let category of categories | async" [routerLink]="['/category-detail', category.id]">
                                 <ion-avatar slot="start">
                                     <ion-img [src]="category.urlImage | image:'categories'"></ion-img>
@@ -50,6 +44,9 @@
                                 <ion-label>{{ category.title }}</ion-label>
                             </ion-item>
                         </ion-list>
+                        <div *ngIf="!categories">
+                            <p>No hay categorías</p>
+                        </div>
                     </ion-card-content>
                 </ion-card>
             </ion-col>

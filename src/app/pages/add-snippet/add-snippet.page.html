@@ -25,12 +25,10 @@
                                     <ion-icon name="close-circle"></ion-icon>
                                 </ion-chip>
                             </div>
-
                         </div>
-                        <ion-item>
-                            <ion-label position="floating">Contenido</ion-label>
-                            <ion-textarea rows="6" cols="20"></ion-textarea>
-                        </ion-item>
+                        <div padding>
+                            <quill-editor [style]="{height: '400px'}"></quill-editor>
+                        </div>
                     </ion-list>
                     <div padding>
                         <ion-button expand="block" type="submit" color="secondary">Guardar Snippet</ion-button>

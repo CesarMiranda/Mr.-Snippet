@@ -1,9 +1,10 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Category } from '../../interfaces/category.interface';
-import { ActionSheetController } from '@ionic/angular';
 import { AddCategoryModalPage } from '../add-category-modal/add-category-modal.page';
 import { AddTagModalPage } from '../add-tag-modal/add-tag-modal.page';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-category-modal',
@@ -13,19 +14,25 @@ import { AddTagModalPage } from '../add-tag-modal/add-tag-modal.page';
 export class CategoryModalPage implements OnInit {
 
   selectedCategories: Category[];
+  categories: Observable<Category[]>;
 
   constructor(
     private modalCtrl: ModalController,
-    private actionSheetCtrl: ActionSheetController
+    private categoryService: CategoryService
   ) {
     this.selectedCategories = [];
   }
 
   ngOnInit() {
+    this.onGetCategories();
   }
 
   closeModal() {
     this.modalCtrl.dismiss();
+  }
+
+  onGetCategories() {
+    this.categories = this.categoryService.getAllCategories();
   }
 
   addCategory() {
@@ -59,37 +66,6 @@ export class CategoryModalPage implements OnInit {
       component: AddTagModalPage
     });
     await modal.present();
-  }
-
-  async showMoreOptions() {
-    const actionSheet = await this.actionSheetCtrl.create({
-      mode: 'md',
-      buttons: [
-        {
-          text: 'Nueva Categoría',
-          icon: 'add',
-          handler: () => {
-            this.showAddCategoryModal();
-          }
-        },
-        {
-          text: 'Nueva Etiqueta',
-          icon: 'pricetags',
-          handler: () => {
-            this.showAddTagModal();
-          }
-        },
-        {
-          text: 'Cancelar',
-          icon: 'close',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    await actionSheet.present();
   }
 
 }
