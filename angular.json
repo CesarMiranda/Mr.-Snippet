@@ -37,10 +37,12 @@
                                 "input": "src/global.scss"
                             },
                             {
-                                "input": "node_modules/highlight.js/styles/default.css"
+                                "input": "node_modules/prismjs/plugins/toolbar/prism-toolbar.css"
+                            },
+                            {
+                                "input": "node_modules/prismjs/themes/prism-okaidia.css"
                             }
-                        ],
-                        "scripts": []
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -6,8 +6,7 @@ import { SnippetsComponent } from './snippets/snippets.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
-
-
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   exports: [
     HeaderComponent,

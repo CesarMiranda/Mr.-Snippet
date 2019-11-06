@@ -9,7 +9,7 @@ import { AddSnippetPage } from './add-snippet.page';
 import { ComponentsModule } from '../../components/components.module';
 import { CategoryModalPageModule } from '../category-modal/category-modal.module';
 import { CategoryModalPage } from '../category-modal/category-modal.page';
-import { QuillModule } from 'ngx-quill';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 const routes: Routes = [
   {
@@ -29,16 +29,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ComponentsModule,
     CategoryModalPageModule,
-    QuillModule.forRoot({
-      modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline', 'strike'],
-          ['blockquote'],
-          [{ size: ['small', false, 'large', 'huge'] }],  // custom dropdown
-          [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ]
-      }
-    })
+    EditorModule
   ],
   declarations: [AddSnippetPage]
 })

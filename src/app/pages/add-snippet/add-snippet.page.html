@@ -4,16 +4,20 @@
     <ion-grid fixed no-padding>
         <ion-row>
             <ion-col size="12" size-md="6" offset-md="3">
-                <form #addSnippetForm="ngForm">
+                <form #addSnippetForm="ngForm" (ngSubmit)="onStoreSnippet()">
                     <ion-list>
                         <ion-item>
                             <ion-label position="floating">Título</ion-label>
-                            <ion-input type="text" name="title"></ion-input>
+                            <ion-input required [(ngModel)]="snippet.title" type="text" name="title"></ion-input>
                         </ion-item>
                         <ion-item>
                             <ion-label position="floating">Subtítulo</ion-label>
-                            <ion-input type="text" name="subtitle"></ion-input>
+                            <ion-input [(ngModel)]="snippet.subtitle" type="text" name="subtitle"></ion-input>
                         </ion-item>
+                        <div padding>
+                            <editor name="body" [(ngModel)]="snippet.body" apiKey="mpbzniw0gp5c8wqay6qacntz7ioxwvnhkwwkgx9nek5aex8b" initialValue="<p><em>Escribe el contenido de tu categoría</em></p>" [init]="init">
+                            </editor>
+                        </div>
                         <div padding>
                             <ion-item color="secondary" (click)="openModalCategory()">
                                 <ion-icon slot="start" name="add"></ion-icon>
@@ -25,9 +29,6 @@
                                     <ion-icon name="close-circle"></ion-icon>
                                 </ion-chip>
                             </div>
-                        </div>
-                        <div padding>
-                            <quill-editor [style]="{height: '400px'}"></quill-editor>
                         </div>
                     </ion-list>
                     <div padding>

@@ -17,4 +17,8 @@ export class SnippetService {
     return this.http.get<Snippet[]>(`${ environment.coreUrl }/snippets`)
       .pipe(tap(console.log));
   }
+
+  storeASnippet(snippet: Snippet) {
+    return this.http.post(`${ environment.coreUrl }/snippets`, snippet );
+  }
 }

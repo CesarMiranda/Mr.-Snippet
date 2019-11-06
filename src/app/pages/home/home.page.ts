@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   snippets: Observable<Snippet[]>;
 
   constructor(
-    private snippetService: SnippetService
+    private snippetService: SnippetService,
   ) {}
 
   ngOnInit() {

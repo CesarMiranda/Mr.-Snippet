@@ -28,8 +28,8 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import '~quill/dist/quill.core.css';
-@import '~quill/dist/quill.snow.css';
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism.css";
 // Estilos
 .icon-big {
     font-size: 2rem !important;

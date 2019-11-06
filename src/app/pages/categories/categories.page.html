@@ -17,7 +17,8 @@
                                 </ion-item>
                             </ion-list>
                             <div class="ion-margin-bottom ion-margin-top">
-                                <quill-editor [style]="{height: '400px'}"></quill-editor>
+                                <editor apiKey="mpbzniw0gp5c8wqay6qacntz7ioxwvnhkwwkgx9nek5aex8b" initialValue="<p><em>Escribe el contenido de tu categoría</em></p>" [init]="init">
+                                </editor>
                             </div>
                             <div class="ion-margin-top">
                                 <ion-button [disabled]="addCategoryForm.invalid" fill="outline" color="secondary" type="submit" expand="block" class="ion-no-margin">

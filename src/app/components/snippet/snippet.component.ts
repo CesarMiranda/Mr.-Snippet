@@ -1,19 +1,22 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 
-import hljs from 'highlight.js/lib/highlight';
-import css from 'highlight.js/lib/languages/css';
-hljs.registerLanguage('css', css);
+// import hljs from 'highlight.js/lib/highlight';
+// import css from 'highlight.js/lib/languages/css';
+// // hljs.registerLanguage('css', css);
 
 import { ActionSheetController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Snippet } from '../../interfaces/snippet.interface';
+import { HighlightService } from './../../services/highlight.service';
 
 @Component({
   selector: 'app-snippet',
   templateUrl: './snippet.component.html',
   styleUrls: ['./snippet.component.scss'],
 })
-export class SnippetComponent implements OnInit, AfterViewInit {
+export class SnippetComponent implements OnInit, AfterViewChecked {
+
+  highlighted = false;
 
   testCode = `
   pre {
@@ -28,8 +31,10 @@ export class SnippetComponent implements OnInit, AfterViewInit {
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
-    private toastCtrl: ToastController
-  ) { }
+    private toastCtrl: ToastController,
+    private highlightService: HighlightService
+  ) {
+  }
 
   ngOnInit() {
     // hljs.initHighlightingOnLoad();
@@ -77,8 +82,17 @@ export class SnippetComponent implements OnInit, AfterViewInit {
     await actionSheet.present();
   }
 
-  ngAfterViewInit() {
-    hljs.highlightBlock(this.code.nativeElement);
+  ngAfterViewChecked() {
+
+    if (this.snippet && !this.highlighted) {
+      this.highlightService.highlightAll();
+      this.highlighted = true;
+    }
+    // // document.querySelectorAll('div.pre').forEach((block) => {
+    // //   console.log(block);
+    // //   hljs.highlightBlock(block);
+    // // });
+    // hljs.highlightBlock(this.code.nativeElement);
   }
 
 }
