@@ -24,15 +24,15 @@
                                 <ion-label>Agregar Categoría</ion-label>
                             </ion-item>
                             <div margin-top *ngIf="categories.length > 0">
-                                <ion-chip *ngFor="let category of categories" outline (click)="deleteCategory(category)">
-                                    <ion-label>{{ category }}</ion-label>
-                                    <ion-icon name="close-circle"></ion-icon>
-                                </ion-chip>
+                                <app-categories [categories]="categories"></app-categories>
                             </div>
                         </div>
                     </ion-list>
-                    <div padding>
-                        <ion-button expand="block" type="submit" color="secondary">Guardar Snippet</ion-button>
+                    <div padding *ngIf="!loading">
+                        <ion-button [disabled]="addSnippetForm.invalid" expand="block" type="submit" color="secondary">Guardar Snippet</ion-button>
+                    </div>
+                    <div padding *ngIf="loading">
+                        <ion-button disabled expand="block" type="submit" color="secondary">Guardando Snippet...</ion-button>
                     </div>
                 </form>
             </ion-col>

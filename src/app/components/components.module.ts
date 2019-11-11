@@ -7,13 +7,17 @@ import { SnippetComponent } from './snippet/snippet.component';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '../pipes/pipes.module';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SnippetsComponent,
     SnippetComponent,
-    MenuComponent
+    MenuComponent,
+    CategoriesComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { PipesModule } from '../pipes/pipes.module';
   exports: [
     HeaderComponent,
     SnippetsComponent,
-    MenuComponent
+    MenuComponent,
+    CategoriesComponent
   ]
 })
 export class ComponentsModule { }

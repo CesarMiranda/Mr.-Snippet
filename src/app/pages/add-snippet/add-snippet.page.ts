@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { CategoryModalPage } from '../category-modal/category-modal.page';
 import { Category } from '../../interfaces/category.interface';
 import { SnippetService } from '../../services/snippet.service';
@@ -29,10 +29,12 @@ export class AddSnippetPage implements OnInit {
   categories: Category[];
   snippet: Snippet;
   idUser = 3;
+  loading = false;
 
   constructor(
     private modalCtrl: ModalController,
-    private snippetService: SnippetService
+    private snippetService: SnippetService,
+    private toastCtrl: ToastController
   ) {
     this.categories = [];
     this.snippet = {
@@ -59,8 +61,6 @@ export class AddSnippetPage implements OnInit {
     if (data) {
       this.categories = data.categories;
     }
-
-    console.log(this.categories);
   }
 
   deleteCategory(category: any) {
@@ -70,12 +70,36 @@ export class AddSnippetPage implements OnInit {
 
   onStoreSnippet() {
 
+    this.loading = true;
+
     this.snippet.idUser = this.idUser;
-    console.log(this.idUser);
+    this.snippet.categories = this.categories;
+
     this.snippetService.storeASnippet(this.snippet)
       .subscribe((respSnippet: Snippet) => {
-        console.log(respSnippet);
+        this.loading = false;
+        this.presentToast();
+        this.snippet = {
+          id: null,
+          title: '',
+          subtitle: '',
+          body: '',
+          idUser: null,
+          created_at: null,
+          updated_at: null
+        };
+        this.categories = [];
+      }, error => {
+        this.loading = false;
       });
+  }
+
+  async presentToast() {
+    const toast = await this.toastCtrl.create({
+      message: '¡Snippet Creado!',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

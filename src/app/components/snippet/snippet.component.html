@@ -1,7 +1,7 @@
 <ion-card mode="ios">
     <ion-card-header>
         <ion-card-subtitle>
-            <span class="category-subtitle">Categoría</span>
+            <span class="category-subtitle" *ngFor="let category of snippet.categories">{{ category.title }}</span>
             <div class="snippet-more">
                 <ion-button fill="clear" (click)="presentActionSheet()">
                     <ion-icon slot="icon-only" name="more"></ion-icon>
