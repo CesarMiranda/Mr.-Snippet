@@ -12,7 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
-import { HighlightService } from './services/highlight.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +27,6 @@ import { HighlightService } from './services/highlight.service';
   providers: [
     StatusBar,
     SplashScreen,
-    HighlightService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

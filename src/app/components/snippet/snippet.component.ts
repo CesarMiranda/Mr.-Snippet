@@ -8,6 +8,8 @@ import { ActionSheetController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Snippet } from '../../interfaces/snippet.interface';
 import { HighlightService } from './../../services/highlight.service';
+import { MyFavoriteService } from '../../services/my-favorite.service';
+import { MyFavorite } from './../../interfaces/myFavorite.interface';
 
 @Component({
   selector: 'app-snippet',
@@ -17,14 +19,8 @@ import { HighlightService } from './../../services/highlight.service';
 export class SnippetComponent implements OnInit, AfterViewChecked {
 
   highlighted = false;
-
-  testCode = `
-  pre {
-    display: flex;
-    margin-bottom: 0;
-    border-radius: 5px;
-  }
-  `;
+  userID = 3;
+  favorite: MyFavorite;
 
   @Input() snippet: Snippet;
   @ViewChild('code', {static: false}) code: ElementRef;
@@ -32,7 +28,8 @@ export class SnippetComponent implements OnInit, AfterViewChecked {
   constructor(
     private actionSheetCtrl: ActionSheetController,
     private toastCtrl: ToastController,
-    private highlightService: HighlightService
+    private highlightService: HighlightService,
+    private myFavoriteService: MyFavoriteService
   ) {
   }
 
@@ -57,7 +54,7 @@ export class SnippetComponent implements OnInit, AfterViewChecked {
           text: 'Agregar a Favoritos',
           icon: 'heart-empty',
           handler: () => {
-            this.presentToast('Se agrego a favoritos');
+            this.onStoreFavorite();
           }
         },
         {
@@ -88,11 +85,18 @@ export class SnippetComponent implements OnInit, AfterViewChecked {
       this.highlightService.highlightAll();
       this.highlighted = true;
     }
-    // // document.querySelectorAll('div.pre').forEach((block) => {
-    // //   console.log(block);
-    // //   hljs.highlightBlock(block);
-    // // });
-    // hljs.highlightBlock(this.code.nativeElement);
+  }
+
+  onStoreFavorite() {
+    this.favorite = {
+      user_id: this.userID,
+      snippet_id: this.snippet.id
+    };
+
+    this.myFavoriteService.storeFavorite(this.favorite)
+      .subscribe( () => {
+        this.presentToast('Se ha agregado a favoritos');
+      });
   }
 
 }

@@ -21,4 +21,8 @@ export class SnippetService {
   storeASnippet(snippet: Snippet) {
     return this.http.post(`${ environment.coreUrl }/snippets`, snippet );
   }
+
+  getSnippet(id: number) {
+    return this.http.get<Snippet>(`${ environment.coreUrl }/snippets/${ id }`);
+  }
 }

@@ -8,7 +8,7 @@
                 </ion-button>
             </div>
         </ion-card-subtitle>
-        <ion-card-title>{{ snippet.title }}</ion-card-title>
+        <ion-card-title [routerLink]="['/snippet-detail', snippet.id]">{{ snippet.title }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
         <ion-label>{{ snippet.subtitle }}</ion-label>

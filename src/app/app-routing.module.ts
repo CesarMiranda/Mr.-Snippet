@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'add-snippet', loadChildren: './pages/add-snippet/add-snippet.module#AddSnippetPageModule' },
   { path: 'categories', loadChildren: './pages/categories/categories.module#CategoriesPageModule' },
   { path: 'category-detail/:id', loadChildren: './pages/categories/category-detail/category-detail.module#CategoryDetailPageModule' },
-  { path: 'my-favorites', loadChildren: './pages/my-favorites/my-favorites.module#MyFavoritesPageModule' }
+  { path: 'my-favorites', loadChildren: './pages/my-favorites/my-favorites.module#MyFavoritesPageModule' },
+  { path: 'snippet-detail/:id', loadChildren: './pages/snippet-detail/snippet-detail.module#SnippetDetailPageModule' }
 ];
 
 @NgModule({
