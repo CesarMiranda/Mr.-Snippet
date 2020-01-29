@@ -1,7 +1,7 @@
 <app-header titulo="Nuevo Snippet"></app-header>
 
 <ion-content>
-    <ion-grid fixed no-padding>
+    <ion-grid fixed class="ion-no-padding">
         <ion-row>
             <ion-col size="12" size-md="6" offset-md="3">
                 <form #addSnippetForm="ngForm" (ngSubmit)="onStoreSnippet()">
@@ -14,24 +14,24 @@
                             <ion-label position="floating">Subtítulo</ion-label>
                             <ion-input [(ngModel)]="snippet.subtitle" type="text" name="subtitle"></ion-input>
                         </ion-item>
-                        <div padding>
+                        <div class="ion-padding">
                             <editor name="body" [(ngModel)]="snippet.body" apiKey="mpbzniw0gp5c8wqay6qacntz7ioxwvnhkwwkgx9nek5aex8b" initialValue="<p><em>Escribe el contenido de tu categoría</em></p>" [init]="init">
                             </editor>
                         </div>
-                        <div padding>
+                        <div class="ion-padding">
                             <ion-item color="secondary" (click)="openModalCategory()">
                                 <ion-icon slot="start" name="add"></ion-icon>
                                 <ion-label>Agregar Categoría</ion-label>
                             </ion-item>
-                            <div margin-top *ngIf="categories.length > 0">
+                            <div *ngIf="categories.length > 0" class="ion-margin-top">
                                 <app-categories [categories]="categories"></app-categories>
                             </div>
                         </div>
                     </ion-list>
-                    <div padding *ngIf="!loading">
+                    <div class="ion-padding" *ngIf="!loading">
                         <ion-button [disabled]="addSnippetForm.invalid" expand="block" type="submit" color="secondary">Guardar Snippet</ion-button>
                     </div>
-                    <div padding *ngIf="loading">
+                    <div class="ion-padding" *ngIf="loading">
                         <ion-button disabled expand="block" type="submit" color="secondary">Guardando Snippet...</ion-button>
                     </div>
                 </form>

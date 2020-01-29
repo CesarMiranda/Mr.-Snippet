@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  coreUrl: 'http://192.168.10.20'
+  coreUrl: 'https://5e8f07ad.ngrok.io'
 };
 
 /*

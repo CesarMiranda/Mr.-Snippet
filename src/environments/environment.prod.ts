@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  coreUrl: 'http://192.168.10.20'
+  coreUrl: 'https://5e8f07ad.ngrok.io'
 };
