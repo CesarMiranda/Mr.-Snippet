@@ -4,7 +4,7 @@ export interface Snippet {
   title: string;
   subtitle: string;
   body: string;
-  idUser: number;
+  userId: number;
   categories?: Array<Category>;
   created_at: string;
   updated_at: string;

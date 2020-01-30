@@ -21,14 +21,15 @@ export class AddSnippetPage implements OnInit {
       'insertdatetime media table paste code help wordcount'
     ],
     toolbar:
-      'undo redo | formatselect | bold italic backcolor | \
+      'code | \
+      undo redo | formatselect | bold italic backcolor | \
       alignleft aligncenter alignright alignjustify | \
       bullist numlist outdent indent | removeformat | help'
   };
 
   categories: Category[];
   snippet: Snippet;
-  idUser = 3;
+  userId = 3;
   loading = false;
 
   constructor(
@@ -42,7 +43,7 @@ export class AddSnippetPage implements OnInit {
       title: '',
       subtitle: '',
       body: '',
-      idUser: null,
+      userId: null,
       created_at: null,
       updated_at: null
     };
@@ -72,7 +73,7 @@ export class AddSnippetPage implements OnInit {
 
     this.loading = true;
 
-    this.snippet.idUser = this.idUser;
+    this.snippet.userId = this.userId;
     this.snippet.categories = this.categories;
 
     this.snippetService.storeASnippet(this.snippet)
@@ -84,7 +85,7 @@ export class AddSnippetPage implements OnInit {
           title: '',
           subtitle: '',
           body: '',
-          idUser: null,
+          userId: null,
           created_at: null,
           updated_at: null
         };
